@@ -44,6 +44,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.labelQuantidadeDias.text = "\(viagem.quantidadeDias) dias"
         cell.labelPreco.text = "R$ \(viagem.preco)"
         cell.imagem.image = UIImage(named: viagem.imagem)
+        
+        //Arredondar bordas da imagem
+        cell.imagem.layer.cornerRadius = 10
+        cell.imagem.layer.masksToBounds = true
 //        cell.textLabel?.text = viagem.titulo
         
         return cell
