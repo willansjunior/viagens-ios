@@ -24,6 +24,7 @@
 		EBB4A9CD225EB13800C2BCE8 /* img1.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB4A9C8225EB13800C2BCE8 /* img1.png */; };
 		EBB4A9CF22636E4700C2BCE8 /* PacoteViagemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4A9CE22636E4700C2BCE8 /* PacoteViagemViewController.swift */; };
 		EBB4A9D122636F9B00C2BCE8 /* PacoteViagemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4A9D022636F9B00C2BCE8 /* PacoteViagemCollectionViewCell.swift */; };
+		EBB4A9D32265684300C2BCE8 /* DetalhePacoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4A9D22265684300C2BCE8 /* DetalhePacoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		EBB4A9C8225EB13800C2BCE8 /* img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img1.png; sourceTree = "<group>"; };
 		EBB4A9CE22636E4700C2BCE8 /* PacoteViagemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacoteViagemViewController.swift; sourceTree = "<group>"; };
 		EBB4A9D022636F9B00C2BCE8 /* PacoteViagemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacoteViagemCollectionViewCell.swift; sourceTree = "<group>"; };
+		EBB4A9D22265684300C2BCE8 /* DetalhePacoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhePacoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				EBB4A9C1225EA91A00C2BCE8 /* TableViewCell.swift */,
 				EBB4A9CE22636E4700C2BCE8 /* PacoteViagemViewController.swift */,
 				EBB4A9D022636F9B00C2BCE8 /* PacoteViagemCollectionViewCell.swift */,
+				EBB4A9D22265684300C2BCE8 /* DetalhePacoteViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			files = (
 				EBB4A9C2225EA91A00C2BCE8 /* TableViewCell.swift in Sources */,
 				EBB4A9B8225CD84E00C2BCE8 /* ViewController.swift in Sources */,
+				EBB4A9D32265684300C2BCE8 /* DetalhePacoteViewController.swift in Sources */,
 				EBB4A9CF22636E4700C2BCE8 /* PacoteViagemViewController.swift in Sources */,
 				EBB4A9BE225E9D8100C2BCE8 /* Viagem.swift in Sources */,
 				EBB4A987225C271B00C2BCE8 /* AppDelegate.swift in Sources */,
