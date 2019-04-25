@@ -10,13 +10,33 @@ import UIKit
 
 class DetalhePacoteViewController: UIViewController {
 
+    @IBOutlet weak var imagem: UIImageView!
+    @IBOutlet weak var labelTitulo: UILabel!
+    @IBOutlet weak var labelDescricao: UILabel!
+    @IBOutlet weak var labelQuantidadeDias: UILabel!
+    @IBOutlet weak var labelPeriodoViagem: UILabel!
+    @IBOutlet weak var labelPreco: UILabel!
+    
+    var pacote:PacoteViagem? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let detalhePacote = pacote {
+            self.imagem.image = UIImage(named: detalhePacote.viagem.imagem)
+            self.labelTitulo.text = detalhePacote.viagem.titulo
+            self.labelDescricao.text = detalhePacote.descricao
+            self.labelQuantidadeDias.text = "\(detalhePacote.viagem.quantidadeDias) dias"
+            self.labelPreco.text = detalhePacote.viagem.preco
+        }
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func buttonVoltar(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -14,8 +14,8 @@ class PacoteViagemViewController: UIViewController, UICollectionViewDataSource, 
     @IBOutlet weak var searchViagens: UISearchBar!
     @IBOutlet weak var labelQuantidadePacotes: UILabel!
     
-    let listaCompleta = ViagemDAO().retornaTodasAsViagens()
-    var list:Array<Viagem> = []
+    let listaCompleta = PacoteViagemDAO().retornaTodasAsViagens()
+    var list:Array<PacoteViagem> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +41,12 @@ class PacoteViagemViewController: UIViewController, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let celulaPacote = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPacote", for: indexPath) as! PacoteViagemCollectionViewCell
         
-        let viagem = list[indexPath.row]
+        let pacote = list[indexPath.row]
         
-        celulaPacote.labelTitulo.text = viagem.titulo
-        celulaPacote.labelQuantidadeDias.text = "\(viagem.quantidadeDias) dias"
-        celulaPacote.labelPreco.text = "R$ \(viagem.preco)"
-        celulaPacote.imagemViagem.image = UIImage(named: viagem.imagem)
+        celulaPacote.labelTitulo.text = pacote.viagem.titulo
+        celulaPacote.labelQuantidadeDias.text = "\(pacote.viagem.quantidadeDias) dias"
+        celulaPacote.labelPreco.text = "R$ \(pacote.viagem.preco)"
+        celulaPacote.imagemViagem.image = UIImage(named: pacote.viagem.imagem)
         
         //tamanho da borda
         celulaPacote.layer.borderWidth = 0.5
@@ -67,11 +67,17 @@ class PacoteViagemViewController: UIViewController, UICollectionViewDataSource, 
     
     //Função para clique de um item da collection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //Recuperando pacote de viagens para enviar para tela de detalhes
+        let pacote = list[indexPath.item]
+        
         //Recupera o storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         //Recupera a view a partir do storyboard
         let controller = storyboard.instantiateViewController(withIdentifier: "detalhe") as! DetalhePacoteViewController
+        
+        //Atribuindo a variavel pacote da tela de detalhes o pacote selecionado
+        controller.pacote = pacote
         
         //Carrega a view
         self.present(controller, animated: true, completion: nil)
@@ -83,7 +89,7 @@ class PacoteViagemViewController: UIViewController, UICollectionViewDataSource, 
         //Filtando a lista
         var pacotes = list
         if searchText != "" {
-            pacotes = pacotes.filter({ $0.titulo.contains(searchText) })
+            pacotes = pacotes.filter({ $0.viagem.titulo.contains(searchText) })
             list = pacotes
         }
         self.labelQuantidadePacotes.text = atualizaContagem()
