@@ -16,11 +16,15 @@ class DetalhePacoteViewController: UIViewController {
     @IBOutlet weak var labelQuantidadeDias: UILabel!
     @IBOutlet weak var labelPeriodoViagem: UILabel!
     @IBOutlet weak var labelPreco: UILabel!
+    @IBOutlet weak var scrollDetalhePacote: UIScrollView!
+    @IBOutlet weak var labelData: UITextField!
     
     var pacote:PacoteViagem? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(aumentaScroll), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         if let detalhePacote = pacote {
             self.imagem.image = UIImage(named: detalhePacote.viagem.imagem)
@@ -37,6 +41,22 @@ class DetalhePacoteViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @objc func aumentaScroll() {
+        self.scrollDetalhePacote.contentSize = CGSize(width: self.scrollDetalhePacote.frame.width, height: self.scrollDetalhePacote.frame.height + 320)
+    }
+    
+    @objc func loadDataTextField(sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MM yyyy"
+        self.labelData.text = formatter.string(from: sender.date)
+    }
+    
+    @IBAction func txtFoco(_ sender: UITextField) {
+        let datePickerView = UIDatePicker()
+        datePickerView.datePickerMode = .date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(loadDataTextField(sender:)), for: .valueChanged)
+    }
     /*
     // MARK: - Navigation
 
