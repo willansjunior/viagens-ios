@@ -48,8 +48,9 @@ class PacoteViagemViewController: UIViewController, UICollectionViewDataSource, 
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let tamanhoCelula = collectionView.bounds.width / 2
-        return CGSize(width: tamanhoCelula - 15, height: 160)
+        
+        //Customizando tamanho e numero de itens por linha para celular e tablet
+        return UIDevice.current.userInterfaceIdiom == .phone ? CGSize(width: collectionView.bounds.width/2-20, height: 160) : CGSize(width: collectionView.bounds.width/3-20, height: 250)
     }
     
     //Função para clique de um item da collection
