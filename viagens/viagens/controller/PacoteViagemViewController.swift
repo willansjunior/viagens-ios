@@ -42,20 +42,7 @@ class PacoteViagemViewController: UIViewController, UICollectionViewDataSource, 
         let celulaPacote = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaPacote", for: indexPath) as! PacoteViagemCollectionViewCell
         
         let pacote = list[indexPath.row]
-        
-        celulaPacote.labelTitulo.text = pacote.viagem.titulo
-        celulaPacote.labelQuantidadeDias.text = "\(pacote.viagem.quantidadeDias) dias"
-        celulaPacote.labelPreco.text = "R$ \(pacote.viagem.preco)"
-        celulaPacote.imagemViagem.image = UIImage(named: pacote.viagem.imagem)
-        
-        //tamanho da borda
-        celulaPacote.layer.borderWidth = 0.5
-        
-        //cor para a borda
-        celulaPacote.layer.borderColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1).cgColor
-        
-        //arredondando a borda
-        celulaPacote.layer.cornerRadius = 8
+        celulaPacote.configCell(pacote: pacote)
         
         return celulaPacote
     }
@@ -80,7 +67,7 @@ class PacoteViagemViewController: UIViewController, UICollectionViewDataSource, 
         controller.pacote = pacote
         
         //Carrega a view
-        self.present(controller, animated: true, completion: nil)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

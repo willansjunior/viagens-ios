@@ -40,15 +40,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //cellViagens é o identificador da TableCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellViagens", for: indexPath) as! TableViewCell
         let viagem = list[indexPath.row]
+        cell.configCell(viagem)
         
-        cell.labelTitulo.text = viagem.titulo
-        cell.labelQuantidadeDias.text = "\(viagem.quantidadeDias) dias"
-        cell.labelPreco.text = "R$ \(viagem.preco)"
-        cell.imagem.image = UIImage(named: viagem.imagem)
-        
-        //Arredondar bordas da imagem
-        cell.imagem.layer.cornerRadius = 10
-        cell.imagem.layer.masksToBounds = true
 //        cell.textLabel?.text = viagem.titulo
         
         return cell

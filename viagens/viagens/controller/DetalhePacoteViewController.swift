@@ -57,14 +57,14 @@ class DetalhePacoteViewController: UIViewController {
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(loadDataTextField(sender:)), for: .valueChanged)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func buttonConfirmarCompra(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "confirmacaoPagamento") as! ConfirmacaoPagamentoViewController
+        controller.pacoteConfirmacao = pacote
+        
+        //Carregando proxima tela
+        self.navigationController?.pushViewController(controller, animated: true)
     }
-    */
 
 }
